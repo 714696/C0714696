@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Net.Http;
+using System.Collections;
+
 
 namespace C0714696
 {
@@ -17,9 +20,16 @@ namespace C0714696
 
         }
 
-        static void Download()
+        static async void Download()
         {
-            Network.Download();
+            HttpClient client = new HttpClient();
+            var data = await client.GetStringAsync("http://ibm.com");
+            Console.WriteLine(data);
+            // To Do: Store each kine of the webpage into an entry
+            // in a List
+           
+            List myList = new List();
+
         }
         class Network
         {
